@@ -15,7 +15,7 @@ class Game:
         self.food = [Food(self.width, self.height) for _ in range(3)]  # Spawn 3 food items
         self.score = 0
         self.is_running = True
-        self.speed = 4  # 降低初始速度
+        self.speed = 10  # 提高初始速度以减少输入延迟
 
     def handle_input(self, event):
         if event.type == pygame.KEYDOWN:
@@ -42,8 +42,8 @@ class Game:
                 self.snake.grow()  # 确保蛇变长
                 food_item.respawn()
                 self.score += 1  # 确保分数增加
-                # 每5分时速度+1，最大速度15
-                if self.score % 5 == 0 and self.speed < 15:
+                # 每5分时速度+2，最大速度30
+                if self.score % 5 == 0 and self.speed < 30:
                     self.speed += 1
         # Check for collisions with walls or itself
         head_x, head_y = self.snake.get_positions()[0]
