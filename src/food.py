@@ -2,7 +2,7 @@ class Food:
     def __init__(self, width, height):
         self.width = width
         self.height = height
-        self.position = self.spawn_food()
+        self.position = self.spawn_food()  # Ensure each food item spawns independently
 
     def spawn_food(self):
         import random
